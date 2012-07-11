@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 0.1
+apiversion: 2
+description: Flurry SDK module for Android
+author: Sofi Software LLC
+license: Apache 2.0
+copyright: Copyright (c) 2012 by Sofi Software LLC
+
+
+# these should not be edited
+name: tiflurry
+moduleid: com.sofisoftwarellc.tiflurry
+guid: 8089a91b-487e-4054-aed5-b9be2670f588
+platform: android
+minsdk: 2.0.2.GA

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="build/.apt_generated"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/FlurryAgent.jar"/>
+	<classpathentry kind="var" path="ANDROID_SDK/platforms/android-10/android.jar"/>
+	<classpathentry kind="var" path="TITANIUM_SDK/titanium.jar"/>
+	<classpathentry kind="var" path="TITANIUM_SDK/js.jar"/>
+	<classpathentry kind="var" path="TITANIUM_SDK/kroll-apt.jar"/>
+	<classpathentry kind="var" path="TITANIUM_SDK/kroll-common.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
