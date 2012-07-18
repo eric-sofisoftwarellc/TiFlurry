@@ -85,23 +85,17 @@ public class TiflurryModule extends KrollModule
 	}
 
 	@Kroll.method
-	public void logEvent(String eventId) {
-		FlurryAgent.logEvent(eventId);
-	}
-
-	@Kroll.method
-	public void logEvent(String eventId, boolean timed) {
-		FlurryAgent.logEvent(eventId, timed);
-	}
-
-	@Kroll.method
-	public void logEvent(String eventId, KrollDict parameters) {
-		FlurryAgent.logEvent(eventId, parameters);
-	}
-
-	@Kroll.method
-	public void logEvent(String eventId, KrollDict parameters, boolean timed) {
-		FlurryAgent.logEvent(eventId, parameters, timed);
+	public void logEvent(String eventId, @Kroll.argument(optional=true) Object arg2, @Kroll.argument(optional=true) Object arg3) {
+		if (arg2 == null)
+			FlurryAgent.logEvent(eventId);
+		else if (arg3 == null) {
+			if (arg2 instanceof Boolean)
+				FlurryAgent.logEvent(eventId, (Boolean) arg2);
+			else if (arg2 instanceof KrollDict)
+				FlurryAgent.logEvent(eventId, (KrollDict) arg2);
+		}
+		else
+			FlurryAgent.logEvent(eventId, (KrollDict) arg2, (Boolean) arg3);
 	}
 
 	@Kroll.method
