@@ -12,7 +12,8 @@
  */
 package com.sofisoftwarellc.tiflurry;
 
-import org.appcelerator.kroll.KrollDict;
+import java.util.HashMap;
+
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.kroll.common.Log;
@@ -91,11 +92,11 @@ public class TiflurryModule extends KrollModule
 		else if (arg3 == null) {
 			if (arg2 instanceof Boolean)
 				FlurryAgent.logEvent(eventId, (Boolean) arg2);
-			else if (arg2 instanceof KrollDict)
-				FlurryAgent.logEvent(eventId, (KrollDict) arg2);
+			else if (arg2 instanceof HashMap)
+				FlurryAgent.logEvent(eventId, (HashMap) arg2);
 		}
 		else
-			FlurryAgent.logEvent(eventId, (KrollDict) arg2, (Boolean) arg3);
+			FlurryAgent.logEvent(eventId, (HashMap) arg2, (Boolean) arg3);
 	}
 
 	@Kroll.method
