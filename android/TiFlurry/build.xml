@@ -5,7 +5,7 @@
 
 	<property name="ti.module.root" location="${basedir}"/>
 
-	<!-- This allows use of ANDROID_SDK, ANDROID_NDK, and TITANIUM_SDK environment variables to build -->
+	<!-- This allows (and requires) use of ANDROID_SDK, ANDROID_NDK, and TITANIUM_SDK environment variables to build -->
 	<property environment="env"/>
 
 	<property file="build.properties" />

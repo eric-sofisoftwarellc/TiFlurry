@@ -1,0 +1,13 @@
+TiFlurry is a module for Titanium that implements the Flurry Analytics API on iOS and Android.
+
+Unlike some other similar modules, this implementation strives for cross-platform 
+API uniformity. To that end, the Android module adds a few methods to make
+the API the same as the iOS API, and several Android-specific methods (less commonly used)
+are not implemented.
+
+Version 1.0 of TiFlurry integrates:
+- Flurry Android SDK version 3.0.4
+- Flurry iOS SDK version 4.0.6
+
+Eric Herrmann
+Sofi Software LLC

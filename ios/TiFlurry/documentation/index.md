@@ -4,7 +4,9 @@
 
 This is a Titanium iOS module for Flurry Analytics. There is a corresponding module for Android.
 
-The current build uses Flurry iPhone SDK v3.0.9.
+Version 1.0 of TiFlurry integrates:
+- Flurry Android SDK version 3.0.4
+- Flurry iOS SDK version 4.0.6
 
 ## Accessing the tiflurry Module
 

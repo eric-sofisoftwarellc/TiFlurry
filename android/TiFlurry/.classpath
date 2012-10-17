@@ -9,5 +9,7 @@
 	<classpathentry kind="var" path="TITANIUM_SDK/android/js.jar"/>
 	<classpathentry kind="var" path="TITANIUM_SDK/android/kroll-apt.jar"/>
 	<classpathentry kind="var" path="TITANIUM_SDK/android/kroll-common.jar"/>
+	<classpathentry kind="var" path="ANDROID_SDK"/>
+	<classpathentry kind="var" path="TITANIUM_SDK"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
