@@ -24,30 +24,38 @@ uniform across iOS and Android.
 
 ## Usage
 
-	var tiflurry = require('com.sofisoftwarellc.tiflurry');
-	Ti.API.info("module is => " + tiflurry);
+var tiflurry = require('com.sofisoftwarellc.tiflurry');
 
-	tiflurry.setContinueSessionMillis(1000);
+tiflurry.setContinueSessionMillis(5000);
 
-	tiflurry.startSession("start session");
+// logUncaughtExceptions must be caught before startSession
+tiflurry.logUncaughtExceptions(true);
 
-	tiflurry.logEvent("myEvent");
+tiflurry.startSession("Your Flurry API Key");
+
+// The following 4 do nothing on Android
+tiflurry.setSessionReportsOnCloseEnabled(true);
+tiflurry.setSessionReportsOnPauseEnabled(true);
+tiflurry.setSecureTransportEnabled(true);
+
+tiflurry.logEvent("myEvent");
     tiflurry.logEvent('myEvent', {key: 'value'});
-    tiflurry.logEvent('myEvent', {key: 'value'}, true); // for timed event
-	tiflurry.endTimedEvent('myEvent');
+    tiflurry.logEvent('myTimedEvent', {key: 'value'}, true); // for timed event
+	tiflurry.endTimedEvent('myTimedEvent');
+
 	
-	tiflurry.logPageView();
+tiflurry.logPageView();
 
-	tiflurry.logError("error id", "message");
+tiflurry.logError("error id", "message");
 
-	tiflurry.setUserID("123");
+tiflurry.setUserID("123");
 
-	tiflurry.setAge(19);
-	tiflurry.setGender("f");
-	tiflurry.setGender("m");
+tiflurry.setAge(19);
+tiflurry.setGender("f");
+tiflurry.setGender("m");
 
-	tiflurry.onEndSession();
-	tiflurry.setLogEnabled(false);
+tiflurry.setLogEnabled(false);
+tiflurry.onEndSession();
 
 ## Author
 

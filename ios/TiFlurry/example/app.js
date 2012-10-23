@@ -17,7 +17,7 @@ tiflurry.setContinueSessionMillis(5000);
 // logUncaughtExceptions must be caught before startSession
 tiflurry.logUncaughtExceptions(true);
 
-tiflurry.startSession("B6HBYPJ8XPK7688758X8");
+tiflurry.startSession("Your Flurry API Key");
 
 // The following 4 do nothing on Android
 tiflurry.setSessionReportsOnCloseEnabled(true);
