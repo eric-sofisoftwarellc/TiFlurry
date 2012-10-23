@@ -21,6 +21,8 @@ import org.appcelerator.kroll.common.TiConfig;
 import org.appcelerator.titanium.TiApplication;
 import org.appcelerator.titanium.TiContext;
 
+import android.app.Activity;
+
 import com.flurry.android.Constants;
 import com.flurry.android.FlurryAgent;
 
@@ -71,13 +73,17 @@ public class TiflurryModule extends KrollModule
 	// Methods
 
 	@Kroll.method
-	public void onStartSession(TiContext context, String apiKey) {
-		FlurryAgent.onStartSession(context.getAndroidContext().getBaseContext(), apiKey);
+	public void onStartSession(String apiKey) {
+		TiApplication appContext = TiApplication.getInstance();
+		Activity activity = appContext.getCurrentActivity();
+		FlurryAgent.onStartSession(activity, apiKey);
 	}
 
 	@Kroll.method
-	public void onEndSession(TiContext context) {
-		FlurryAgent.onEndSession(context.getAndroidContext().getBaseContext());
+	public void onEndSession() {
+		TiApplication appContext = TiApplication.getInstance();
+		Activity activity = appContext.getCurrentActivity();
+		FlurryAgent.onEndSession(activity);
 	}
 
 	@Kroll.method
@@ -157,7 +163,6 @@ public class TiflurryModule extends KrollModule
 		FlurryAgent.setCaptureUncaughtExceptions(b);
 	}
 
-
 	@Kroll.method
 	public void setSessionReportsOnCloseEnabled(boolean b) {
 		Log.w(LCAT, "setSessionReportsOnCloseEnabled ignored on Android");
@@ -184,7 +189,9 @@ public class TiflurryModule extends KrollModule
 	}
 
 	@Kroll.method
-	public void logError(String errorId, String message, String errorClass) {
+	public void logError(String errorId, String message, @Kroll.argument(optional=true) String errorClass) {
+		if (errorClass == null)
+			errorClass = "";
 		FlurryAgent.onError(errorId, message, errorClass);
 	}
 
@@ -203,5 +210,11 @@ public class TiflurryModule extends KrollModule
 	public void setLatitude(float lat, float lng, float h, float v) {
 		Log.w(LCAT, "setLatitude ignored on Android");
 	}
+
+	@Kroll.method
+	public void setUserID(String userId) {
+		FlurryAgent.setUserId(userId);
+	}
+
 }
 

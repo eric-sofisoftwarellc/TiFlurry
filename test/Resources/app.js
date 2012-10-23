@@ -44,4 +44,3 @@ tiflurry.setLogEnabled(false);
 tiflurry.onEndSession();
 
 Ti.API.info("test completed");
-

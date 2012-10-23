@@ -1,0 +1,45 @@
+<project name="TiFlurry" default="dist">
+	<description>
+		Ant build script for Titanium modules TiFlurry
+	</description>
+
+	<target name="clean-iphone">
+		<delete dir="ios/TiFlurry/build" quiet="true"/>
+	</target>
+	<target name="clean-android">
+		<ant dir="android/TiFlurry" target="clean"/>
+	</target>
+	<target name="clean" depends="clean-iphone,clean-android">
+	</target>
+
+	<target name="dist-android">
+		<ant dir="android/TiFlurry"/>
+	</target>
+	<target name="dist-iphone">
+		<exec dir="ios/TiFlurry" executable="python">
+		    <arg value="build.py"/>
+		</exec>
+	</target>
+	<target name="dist" depends="dist-android,dist-iphone">
+	</target>
+
+	<target name="install-android">
+		<copy file="android/TiFlurry/dist/com.sofisoftwarellc.tiflurry-android-1.0.zip" todir="${user.home}/Library/Application Support/Titanium"/>
+	</target>
+	<target name="install-iphone">
+		<copy file="ios/TiFlurry/com.sofisoftwarellc.tiflurry-iphone-1.0.zip" todir="${user.home}/Library/Application Support/Titanium"/>
+	</target>
+	<target name="install" depends="install-android,install-iphone">
+	</target>
+
+	<target name="package">
+		<delete file="com.sofisoftwarellc.tiflurry-android-1.0-iphone-1.0.zip" quiet="true"/>
+		<delete dir="dist/modules" quiet="true"/>
+		<copy file="android/TiFlurry/dist/com.sofisoftwarellc.tiflurry-android-1.0.zip" todir="dist"/>
+		<copy file="ios/TiFlurry/com.sofisoftwarellc.tiflurry-iphone-1.0.zip" todir="dist"/>
+		<unzip src="dist/com.sofisoftwarellc.tiflurry-android-1.0.zip" dest="dist"/>
+		<unzip src="dist/com.sofisoftwarellc.tiflurry-iphone-1.0.zip" dest="dist"/>
+		<zip destfile="dist/com.sofisoftwarellc.tiflurry-android-1.0-iphone-1.0.zip" basedir="dist/modules"/>
+	</target>
+	
+</project>

@@ -1,8 +1,9 @@
 tmp
 bin
 build
-*.zip
+android/TiFlurry/dist
+ios/TiFlurry/*.zip
 .apt_generated
 .settings
-dist
 libs
+dist

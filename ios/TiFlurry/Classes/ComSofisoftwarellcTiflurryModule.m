@@ -140,18 +140,29 @@ void uncaughtExceptionHandler(NSException *exception)
  */
 - (void)logEvent:(id)args
 {
-	NSString * eventId = [TiUtils stringValue:[args objectAtIndex:0]];
+    NSLog(@"logEvent");
+	NSString * eventId = nil;
 	NSDictionary * parameters = nil;
     NSNumber * timed = nil;
+    
+    if ([args isKindOfClass:[NSString class]]) {
+        eventId = args;
+    } else if ([args isKindOfClass:[NSArray class]] && [args count] > 0) {
+        eventId = [TiUtils stringValue:[args objectAtIndex:0]];
 
-    if ([args count] <= 1) {
-        ENSURE_SINGLE_ARG(args, NSString);
-    } else if ([args count] > 1) {
-        parameters = [args objectAtIndex:1];
-    } else if ([args count] > 2) {
-        timed = [args objectAtIndex:2];
+        if ([args count] > 2) {
+            timed = [args objectAtIndex:2];
+        }
+        if ([args count] > 1) {
+            parameters = [args objectAtIndex:1];
+            NSLog(@"params=%@", [parameters class]);
+        }
     }
-	
+    
+    if (eventId == nil) {
+        [self throwException:TiExceptionInvalidType subreason:[NSString stringWithFormat:@"expected: %@, was: nil", [NSString class]] location:CODELOCATION];
+        return;
+    }
     if (parameters == nil) {
 		[FlurryAnalytics logEvent:eventId];
 	} else if (timed == nil) {
@@ -163,10 +174,13 @@ void uncaughtExceptionHandler(NSException *exception)
 
 -(void)endTimedEvent:(id)args
 {
-	NSString * eventId = [TiUtils stringValue:[args objectAtIndex:0]];
+	NSString * eventId;
 	NSDictionary * parameters = nil;
-	if ([args count] > 1)
-	{
+    
+    if ([args isKindOfClass:[NSString class]]) {
+        eventId = args;
+    } else if ([args isKindOfClass:[NSArray class]] && [args count] > 1) {
+        eventId = [TiUtils stringValue:[args objectAtIndex:0]];
 		parameters = [args objectAtIndex:1];
 	}
     
@@ -180,10 +194,12 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (void)logError:(id)args
 {
-    if ([args count] >= 2) {
+    if ([args isKindOfClass:[NSArray class]] && [args count] >= 2) {
 		NSString * errorId = [TiUtils stringValue:[args objectAtIndex:0] ];
         NSString * message = [TiUtils stringValue:[args objectAtIndex:1] ];
-        NSException * exception = [NSException exceptionWithName:@"Titanium Exception" reason:@"Exception thrown" userInfo:nil];
+        NSException * exception = [NSException exceptionWithName:@"FlurryException"
+                                                          reason:@"Error"
+                                                        userInfo:nil];
         [FlurryAnalytics logError:errorId message:message exception:exception];
 	}
 }
@@ -197,6 +213,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 -(void)setAge:(id)args
 {
+	ENSURE_SINGLE_ARG(args, NSNumber);
 	NSInteger age = [TiUtils intValue:args];
 	[FlurryAnalytics setAge:age];
 }
@@ -204,17 +221,16 @@ void uncaughtExceptionHandler(NSException *exception)
 -(void)setGender:(id)args
 {
 	ENSURE_SINGLE_ARG(args, NSObject);
-    NSObject * arg = [args objectAtIndex:0];
     NSString * gender = nil;
     
-    if ([arg isKindOfClass:[NSNumber class]]) {
-        int genderInt = [TiUtils intValue:arg];
+    if ([args isKindOfClass:[NSNumber class]]) {
+        int genderInt = [TiUtils intValue:args];
         if (genderInt == 0)
             gender = @"f";
         else 
             gender = @"m";
-    } else if ([arg isKindOfClass:[NSString class]]) {
-        NSString * genderStr = [TiUtils stringValue:arg];
+    } else if ([args isKindOfClass:[NSString class]]) {
+        NSString * genderStr = [TiUtils stringValue:args];
         
         if ([genderStr isEqualToString:@"m"] || [genderStr isEqualToString:@"f"]) {
             gender = genderStr;
@@ -227,8 +243,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 -(void)setLatitude:(id)args
 {   
-    if ([args count] >= 4)
-	{
+    if ([args isKindOfClass:[NSArray class]] && [args count]==4) {
 		CGFloat lat = [TiUtils floatValue:[args objectAtIndex:0] ];
    		CGFloat lon = [TiUtils floatValue:[args objectAtIndex:1] ];
    		CGFloat h = [TiUtils floatValue:[args objectAtIndex:2] ];
@@ -236,6 +251,11 @@ void uncaughtExceptionHandler(NSException *exception)
 
         [FlurryAnalytics setLatitude:lat longitude:lon horizontalAccuracy:h verticalAccuracy:v];
 	}
+}
+
+-(void)onEndSession:(id)args
+{
+    NSLog(@"onEndSession ignored on ios");
 }
 
 @end
