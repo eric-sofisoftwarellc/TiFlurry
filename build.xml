@@ -24,22 +24,22 @@
 	</target>
 
 	<target name="install-android">
-		<copy file="android/TiFlurry/dist/com.sofisoftwarellc.tiflurry-android-1.0.zip" todir="${user.home}/Library/Application Support/Titanium"/>
+		<copy file="android/TiFlurry/dist/com.sofisoftwarellc.tiflurry-android-1.0.1.zip" todir="${user.home}/Library/Application Support/Titanium"/>
 	</target>
 	<target name="install-iphone">
-		<copy file="ios/TiFlurry/com.sofisoftwarellc.tiflurry-iphone-1.0.zip" todir="${user.home}/Library/Application Support/Titanium"/>
+		<copy file="ios/TiFlurry/com.sofisoftwarellc.tiflurry-iphone-1.0.1.zip" todir="${user.home}/Library/Application Support/Titanium"/>
 	</target>
 	<target name="install" depends="install-android,install-iphone">
 	</target>
 
 	<target name="package">
-		<delete file="com.sofisoftwarellc.tiflurry-android-1.0-iphone-1.0.zip" quiet="true"/>
+		<delete file="com.sofisoftwarellc.tiflurry-android-1.0.1-iphone-1.0.1.zip" quiet="true"/>
 		<delete dir="dist/modules" quiet="true"/>
-		<copy file="android/TiFlurry/dist/com.sofisoftwarellc.tiflurry-android-1.0.zip" todir="dist"/>
-		<copy file="ios/TiFlurry/com.sofisoftwarellc.tiflurry-iphone-1.0.zip" todir="dist"/>
-		<unzip src="dist/com.sofisoftwarellc.tiflurry-android-1.0.zip" dest="dist"/>
-		<unzip src="dist/com.sofisoftwarellc.tiflurry-iphone-1.0.zip" dest="dist"/>
-		<zip destfile="dist/com.sofisoftwarellc.tiflurry-android-1.0-iphone-1.0.zip" basedir="dist/modules"/>
+		<copy file="android/TiFlurry/dist/com.sofisoftwarellc.tiflurry-android-1.0.1.zip" todir="dist"/>
+		<copy file="ios/TiFlurry/com.sofisoftwarellc.tiflurry-iphone-1.0.1.zip" todir="dist"/>
+		<unzip src="dist/com.sofisoftwarellc.tiflurry-android-1.0.1.zip" dest="dist"/>
+		<unzip src="dist/com.sofisoftwarellc.tiflurry-iphone-1.0.1.zip" dest="dist"/>
+		<zip destfile="dist/com.sofisoftwarellc.tiflurry-android-1.0.1-iphone-1.0.1.zip" basedir="dist/modules"/>
 	</target>
 	
 </project>

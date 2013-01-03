@@ -15,16 +15,19 @@
 #import "TiBase.h"
 #import "TiHost.h"
 #import "TiUtils.h"
-#import "FlurryAnalytics.h"
+#import "Flurry.h"
 
 @implementation ComSofisoftwarellcTiflurryModule
 
 #pragma mark Internal
 
-// this is generated for your module, please do not change it
+// this is generated for your module
+// Please note that for the Open Source version of the module, you MUST change this GUID,
+// otherwise Appcelerator's licensing will prevent use of the module.
+// You must also change the matching entry in "manifest".
 -(id)moduleGUID
 {
-	return @"61d50af2-1676-4a5c-bab8-2f9b8f476469";
+	return @"8089a91b-487e-4054-aed5-b9be2670f588";
 }
 
 // this is generated for your module, please do not change it
@@ -41,7 +44,7 @@
 	// you *must* call the superclass
 	[super startup];
 	
-	NSLog(@"[INFO] %@ loaded",self);
+//	NSLog(@"[INFO] %@ loaded",self);
 }
 
 -(void)shutdown:(id)sender
@@ -87,16 +90,16 @@
 {
 	ENSURE_SINGLE_ARG(args, NSString);
     
-	NSLog(@"[INFO] %@ startSession",self);
+//	NSLog(@"[INFO] %@ startSession",self);
 
     NSString *appId = [TiUtils stringValue:args];
     
-    [FlurryAnalytics startSession:appId];
+    [Flurry startSession:appId];
 }
 
 void uncaughtExceptionHandler(NSException *exception) 
 {
-    [FlurryAnalytics logError:@"Uncaught Exception" message:@"Uncaught Objective-C exception" exception:exception];
+    [Flurry logError:@"Uncaught Exception" message:@"Uncaught Objective-C exception" exception:exception];
 }
 
 - (void)logUncaughtExceptions:(id)args
@@ -110,7 +113,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 	BOOL setting = [TiUtils boolValue:args];
     
-	[FlurryAnalytics setSessionReportsOnCloseEnabled:setting];
+	[Flurry setSessionReportsOnCloseEnabled:setting];
 }
 
 - (void)setSessionReportsOnPauseEnabled:(id)args
@@ -119,7 +122,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 	BOOL setting = [TiUtils boolValue:args];
 
-	[FlurryAnalytics setSessionReportsOnPauseEnabled:setting];
+	[Flurry setSessionReportsOnPauseEnabled:setting];
 }
 
 - (void)setSecureTransportEnabled:(id)args
@@ -127,8 +130,22 @@ void uncaughtExceptionHandler(NSException *exception)
 	ENSURE_SINGLE_ARG(args, NSNumber);
     
 	BOOL setting = [TiUtils boolValue:args];
+    
+	[Flurry setSecureTransportEnabled:setting];
+}
 
-	[FlurryAnalytics setSecureTransportEnabled:setting];
+- (void)setEventLoggingEnabled:(id)args
+{
+	ENSURE_SINGLE_ARG(args, NSNumber);
+    
+	BOOL setting = [TiUtils boolValue:args];
+    
+	[Flurry setEventLoggingEnabled:setting];
+}
+
+- (void)setLogEnabled:(id)args
+{
+    [self setEventLoggingEnabled:args];
 }
 
 /*
@@ -140,7 +157,6 @@ void uncaughtExceptionHandler(NSException *exception)
  */
 - (void)logEvent:(id)args
 {
-    NSLog(@"logEvent");
 	NSString * eventId = nil;
 	NSDictionary * parameters = nil;
     NSNumber * timed = nil;
@@ -155,7 +171,7 @@ void uncaughtExceptionHandler(NSException *exception)
         }
         if ([args count] > 1) {
             parameters = [args objectAtIndex:1];
-            NSLog(@"params=%@", [parameters class]);
+//            NSLog(@"params=%@", [parameters class]);
         }
     }
     
@@ -164,11 +180,11 @@ void uncaughtExceptionHandler(NSException *exception)
         return;
     }
     if (parameters == nil) {
-		[FlurryAnalytics logEvent:eventId];
+		[Flurry logEvent:eventId];
 	} else if (timed == nil) {
-		[FlurryAnalytics logEvent:eventId withParameters:parameters];
+		[Flurry logEvent:eventId withParameters:parameters];
 	} else {
-		[FlurryAnalytics logEvent:eventId withParameters:parameters timed:[timed boolValue]];
+		[Flurry logEvent:eventId withParameters:parameters timed:[timed boolValue]];
     }
 }
 
@@ -184,12 +200,12 @@ void uncaughtExceptionHandler(NSException *exception)
 		parameters = [args objectAtIndex:1];
 	}
     
-	[FlurryAnalytics endTimedEvent:eventId withParameters:parameters];
+	[Flurry endTimedEvent:eventId withParameters:parameters];
 }
 
 - (void)logPageView:(id)args
 {
-	[FlurryAnalytics logPageView];
+	[Flurry logPageView];
 }
 
 - (void)logError:(id)args
@@ -200,7 +216,7 @@ void uncaughtExceptionHandler(NSException *exception)
         NSException * exception = [NSException exceptionWithName:@"FlurryException"
                                                           reason:@"Error"
                                                         userInfo:nil];
-        [FlurryAnalytics logError:errorId message:message exception:exception];
+        [Flurry logError:errorId message:message exception:exception];
 	}
 }
 
@@ -208,14 +224,14 @@ void uncaughtExceptionHandler(NSException *exception)
 {
 	ENSURE_SINGLE_ARG(args, NSString);
 
-	[FlurryAnalytics setUserID:args];
+	[Flurry setUserID:args];
 }
 
 -(void)setAge:(id)args
 {
 	ENSURE_SINGLE_ARG(args, NSNumber);
 	NSInteger age = [TiUtils intValue:args];
-	[FlurryAnalytics setAge:age];
+	[Flurry setAge:age];
 }
 
 -(void)setGender:(id)args
@@ -238,7 +254,7 @@ void uncaughtExceptionHandler(NSException *exception)
     }
     
     if (gender != nil)
-        [FlurryAnalytics setGender:gender];
+        [Flurry setGender:gender];
 }
 
 -(void)setLatitude:(id)args
@@ -249,7 +265,7 @@ void uncaughtExceptionHandler(NSException *exception)
    		CGFloat h = [TiUtils floatValue:[args objectAtIndex:2] ];
    		CGFloat v = [TiUtils floatValue:[args objectAtIndex:3] ];
 
-        [FlurryAnalytics setLatitude:lat longitude:lon horizontalAccuracy:h verticalAccuracy:v];
+        [Flurry setLatitude:lat longitude:lon horizontalAccuracy:h verticalAccuracy:v];
 	}
 }
 

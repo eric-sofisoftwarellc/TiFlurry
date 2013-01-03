@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.0
+version: 1.0.1
 apiversion: 2
 description: Titanium iOS module for Flurry
 author: Sofi Software LLC
@@ -13,6 +13,11 @@ copyright: Copyright (c) 2012 by Sofi Software LLC
 # these should not be edited
 name: tiflurry
 moduleid: com.sofisoftwarellc.tiflurry
-guid: 8089a91b-487e-4054-aed5-b9be2670f588
 platform: iphone
 minsdk: 2.1.3.GA
+
+# Please note that for the Open Source version of the module, you MUST change this GUID,
+# otherwise Appcelerator's licensing will prevent use of the module.
+# You must also change the matching entry in ComSofisoftwarellcTiflurryModule.h
+# Otherwise, do not change this GUID
+guid: 8089a91b-487e-4054-aed5-b9be2670f588

@@ -11,4 +11,13 @@
 	<property file="build.properties" />
 
 	<import file="${titanium.platform}/../module/android/build.xml"/>
+
+	<target name="install" description="Installs the module into the Titanium directory" depends="dist">
+ 		<ti.string property="module.id" string="${manifest.moduleid}" tolowercase="true"/>
+		<echo message="${titanium.dir} file=${dist}/${module.id}-android-${manifest.version}.zip"/>
+		
+	    <copy todir="${titanium.dir}" file="${dist}/${module.id}-android-${manifest.version}.zip">
+		</copy>
+	</target>
+
 </project>

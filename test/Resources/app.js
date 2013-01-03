@@ -2,7 +2,8 @@
 
 // open a single window
 var win = Ti.UI.createWindow({
-	backgroundColor:'white'
+	backgroundColor:'white',
+	exitOnClose: false
 });
 var label = Ti.UI.createLabel();
 win.add(label);
@@ -44,3 +45,32 @@ tiflurry.setLogEnabled(false);
 tiflurry.onEndSession();
 
 Ti.API.info("test completed");
+
+Ti.Android.currentActivity.addEventListener('blur', function(e) {
+	Ti.API.info("app.js activity blur");
+});
+Ti.Android.currentActivity.addEventListener('focus', function(e) {
+	Ti.API.info("app.js activity focus");
+});
+Ti.Android.currentActivity.addEventListener('pause', function(e) {
+	Ti.API.info("app.js activity pause");
+});
+Ti.Android.currentActivity.addEventListener('resume', function(e) {
+	Ti.API.info("app.js activity resume");
+});
+Ti.App.addEventListener('pause', function(e) {
+    Ti.API.info("app.js pause");
+});
+Ti.App.addEventListener('resume', function(e) {
+	Ti.API.info("app.js resume");
+});
+Ti.App.addEventListener('close', function(e) {
+    Ti.API.info("app.js close");
+});
+
+var activity = Ti.Android.currentActivity;
+['create', 'destroy', 'pause', 'resume', 'start', 'stop'].forEach(function(e) {
+    activity.addEventListener(e, function() {
+        Ti.API.info((new Date()) + " Activity: " + e + " HIT!");
+    })
+});

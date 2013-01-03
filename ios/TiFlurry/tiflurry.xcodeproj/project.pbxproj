@@ -22,13 +22,13 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		1D5BEFF5158BB9F6000081A7 /* FlurryAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D5BEFF3158BB9F6000081A7 /* FlurryAnalytics.h */; };
-		1D5BEFF6158BB9F6000081A7 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5BEFF4158BB9F6000081A7 /* libFlurryAnalytics.a */; };
 		1DB7001E15ADFD050084589A /* ComSofisoftwarellcTiflurry_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 1DB7001D15ADFD050084589A /* ComSofisoftwarellcTiflurry_Prefix.pch */; };
 		1DB7002315ADFD240084589A /* ComSofisoftwarellcTiflurryModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DB7001F15ADFD240084589A /* ComSofisoftwarellcTiflurryModule.h */; };
 		1DB7002415ADFD240084589A /* ComSofisoftwarellcTiflurryModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7002015ADFD240084589A /* ComSofisoftwarellcTiflurryModule.m */; };
 		1DB7002515ADFD240084589A /* ComSofisoftwarellcTiflurryModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DB7002115ADFD240084589A /* ComSofisoftwarellcTiflurryModuleAssets.h */; };
 		1DB7002615ADFD240084589A /* ComSofisoftwarellcTiflurryModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7002215ADFD240084589A /* ComSofisoftwarellcTiflurryModuleAssets.m */; };
+		1DC3FEFF1695EAD500A7F4CB /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DC3FEFD1695EAD500A7F4CB /* Flurry.h */; };
+		1DC3FF001695EAD500A7F4CB /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC3FEFE1695EAD500A7F4CB /* libFlurry.a */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,13 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D5BEFF3158BB9F6000081A7 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAnalytics.h; path = flurry/FlurryAnalytics.h; sourceTree = "<group>"; };
-		1D5BEFF4158BB9F6000081A7 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAnalytics.a; path = flurry/libFlurryAnalytics.a; sourceTree = "<group>"; };
 		1DB7001D15ADFD050084589A /* ComSofisoftwarellcTiflurry_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComSofisoftwarellcTiflurry_Prefix.pch; sourceTree = "<group>"; };
 		1DB7001F15ADFD240084589A /* ComSofisoftwarellcTiflurryModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComSofisoftwarellcTiflurryModule.h; path = Classes/ComSofisoftwarellcTiflurryModule.h; sourceTree = "<group>"; };
 		1DB7002015ADFD240084589A /* ComSofisoftwarellcTiflurryModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComSofisoftwarellcTiflurryModule.m; path = Classes/ComSofisoftwarellcTiflurryModule.m; sourceTree = "<group>"; };
 		1DB7002115ADFD240084589A /* ComSofisoftwarellcTiflurryModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComSofisoftwarellcTiflurryModuleAssets.h; path = Classes/ComSofisoftwarellcTiflurryModuleAssets.h; sourceTree = "<group>"; };
 		1DB7002215ADFD240084589A /* ComSofisoftwarellcTiflurryModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComSofisoftwarellcTiflurryModuleAssets.m; path = Classes/ComSofisoftwarellcTiflurryModuleAssets.m; sourceTree = "<group>"; };
+		1DC3FEFD1695EAD500A7F4CB /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = flurry/Flurry.h; sourceTree = "<group>"; };
+		1DC3FEFE1695EAD500A7F4CB /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = flurry/libFlurry.a; sourceTree = "<group>"; };
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libComSofisoftwarellcTiflurry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libComSofisoftwarellcTiflurry.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				1D5BEFF6158BB9F6000081A7 /* libFlurryAnalytics.a in Frameworks */,
+				1DC3FF001695EAD500A7F4CB /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +110,8 @@
 		1D5BEFF1158BB9E6000081A7 /* flurry */ = {
 			isa = PBXGroup;
 			children = (
-				1D5BEFF3158BB9F6000081A7 /* FlurryAnalytics.h */,
-				1D5BEFF4158BB9F6000081A7 /* libFlurryAnalytics.a */,
+				1DC3FEFD1695EAD500A7F4CB /* Flurry.h */,
+				1DC3FEFE1695EAD500A7F4CB /* libFlurry.a */,
 			);
 			name = flurry;
 			sourceTree = "<group>";
@@ -132,10 +132,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D5BEFF5158BB9F6000081A7 /* FlurryAnalytics.h in Headers */,
 				1DB7001E15ADFD050084589A /* ComSofisoftwarellcTiflurry_Prefix.pch in Headers */,
 				1DB7002315ADFD240084589A /* ComSofisoftwarellcTiflurryModule.h in Headers */,
 				1DB7002515ADFD240084589A /* ComSofisoftwarellcTiflurryModuleAssets.h in Headers */,
+				1DC3FEFF1695EAD500A7F4CB /* Flurry.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,11 +240,11 @@
 				"ARCHS[sdk=iphonesimulator*]" = i386;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DSTROOT = "/tmp/ComSofisoftwarellcTiflurry.dst";
+				DSTROOT = /tmp/ComSofisoftwarellcTiflurry.dst;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ComSofisoftwarellcTiflurry_Prefix.pch";
+				GCC_PREFIX_HEADER = ComSofisoftwarellcTiflurry_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -261,13 +261,14 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/flurry\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_CFLAGS = (
 					"-DDEBUG",
 					"-DTI_POST_1_2",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ComSofisoftwarellcTiflurry";
+				PRODUCT_NAME = ComSofisoftwarellcTiflurry;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = NO;
@@ -290,11 +291,11 @@
 					armv7,
 				);
 				"ARCHS[sdk=iphonesimulator*]" = i386;
-				DSTROOT = "/tmp/ComSofisoftwarellcTiflurry.dst";
+				DSTROOT = /tmp/ComSofisoftwarellcTiflurry.dst;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ComSofisoftwarellcTiflurry_Prefix.pch";
+				GCC_PREFIX_HEADER = ComSofisoftwarellcTiflurry_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -312,10 +313,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/flurry\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_CFLAGS = "-DTI_POST_1_2";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ComSofisoftwarellcTiflurry";
+				PRODUCT_NAME = ComSofisoftwarellcTiflurry;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -337,11 +339,11 @@
 				"ARCHS[sdk=iphonesimulator*]" = i386;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DSTROOT = "/tmp/ComSofisoftwarellcTiflurry.dst";
+				DSTROOT = /tmp/ComSofisoftwarellcTiflurry.dst;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ComSofisoftwarellcTiflurry_Prefix.pch";
+				GCC_PREFIX_HEADER = ComSofisoftwarellcTiflurry_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -360,7 +362,7 @@
 					"-DTI_POST_1_2",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "ComSofisoftwarellcTiflurry";
+				PRODUCT_NAME = ComSofisoftwarellcTiflurry;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = NO;
@@ -383,7 +385,7 @@
 					armv7,
 				);
 				"ARCHS[sdk=iphonesimulator*]" = i386;
-				DSTROOT = "/tmp/ComSofisoftwarellcTiflurry.dst";
+				DSTROOT = /tmp/ComSofisoftwarellcTiflurry.dst;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
